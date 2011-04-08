@@ -496,6 +496,8 @@ Player::run(int argc, char* argv[], const std::string& infile,
     // Now that we know about movie size, create gui window.
     _gui->createWindow(_url.c_str(), _width, _height, _xPosition, _yPosition);
 
+    { // movie_root scope (https://savannah.gnu.org/bugs/index.php?32579)
+
     movie_root root(*_movieDef, _gui->getClock(), *_runResources);
     
     _callbacksHandler.reset(new CallbacksHandler(*_gui, *this)); 
@@ -646,6 +648,8 @@ Player::run(int argc, char* argv[], const std::string& infile,
     }
 
     _gui->run();
+
+    } // kill movie_root here (https://savannah.gnu.org/bugs/index.php?32579)
 
     log_debug("Main loop ended, cleaning up");
 
