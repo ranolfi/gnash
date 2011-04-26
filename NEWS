@@ -5,6 +5,7 @@ Bugs fixed since 0.8.9:
 
  * #32579: boost::lock_error from CurlSession::lockSharedHandle()
  * RPM packaging
+ * DUMP gui build scripts
 
 Gnash 0.8.9
 2011/03/19
